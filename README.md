@@ -376,21 +376,6 @@ Fallback Actions:
 
 ---
 
-## 📄 Citation
-
-If you use this work, please cite:
-
-```bibtex
-@article{ayush2026uavflood,
-  title={Edge AI-Enabled Autonomous UAVs for Real-Time Flood Detection and Geospatial GPS Mapping},
-  author={Kumar, Ayush and Huang, Po Chun and Pratap, Ayush and Hsiung, Pao-Ann},
-  journal={IEEE},
-  year={2026}
-}
-```
-
----
-
 ## 👨‍💻 Authors
 
 * Ayush Kumar
