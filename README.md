@@ -83,17 +83,34 @@ Autonomous UAV Navigation
 * Dataset: Hybrid (Real + Gazebo)
 * Output: Flood / Non-Flood
 
+<img width="746" height="571" alt="14 04 2025_13 47 51_REC" src="https://github.com/user-attachments/assets/bc71e7b6-3835-4c5d-9926-9adf02241f35" />
+
+<img width="1437" height="938" alt="14 04 2025_14 35 07_REC" src="https://github.com/user-attachments/assets/8dad2a30-2623-4d53-b72f-a482e0eddf48" />
+
+
+
 ### 2. U-Net (Simulation Segmentation)
 
 * IoU: **0.932**
 * Dice: **0.956**
 * Pixel Accuracy: **99.63%**
 
+<img width="1125" height="722" alt="18 04 2025_18 51 35_REC" src="https://github.com/user-attachments/assets/c1ec2983-3995-4d5b-b68f-84d7d7b55fd6" />
+
+<img width="1304" height="877" alt="19 04 2025_11 23 32_REC" src="https://github.com/user-attachments/assets/d80df5ee-0ed9-444b-b7b3-fcde93b7edeb" />
+
+
+
 ### 3. DeepLabv3+ (MobileNetV3 Backbone)
 
 * Real UAV imagery
 * Pixel Accuracy: **89.26%**
 * Optimized for real-world deployment
+
+
+![ChatGPT Image May 30, 2025, 08_49_15 PM](https://github.com/user-attachments/assets/8efcc8b4-8248-461e-ae17-c64ada0b727f)
+
+
 
 ---
 
@@ -260,6 +277,7 @@ make px4_sitl gazebo
 ```bash
 make px4_sitl gazebo
 ```
+<img width="1897" height="987" alt="Screenshot 2025-08-05 103054_edited" src="https://github.com/user-attachments/assets/05dc9a1e-2bf9-44af-ac04-a371b711d027" />
 
 ---
 
@@ -306,6 +324,7 @@ ros2 service call /mavros/set_mode ...
 6. Project to 3D using camera model
 7. Convert to GPS (GeographicLib)
 8. Publish waypoint
+<img width="786" height="472" alt="imp" src="https://github.com/user-attachments/assets/bfe345d4-150b-4303-a44f-97e4c45c2ad5" />
 
 ---
 
@@ -351,6 +370,20 @@ Fallback Actions:
 | Accuracy    | ~99%       | ~89%            |
 | Environment | Controlled | Noisy, dynamic  |
 | Use Case    | Testing    | Real missions   |
+
+Unet:
+
+<img width="600" height="500" alt="confusion_matrix_unet" src="https://github.com/user-attachments/assets/61aeca2b-c668-4c3a-86b5-e7114e8a88dc" />
+
+
+ResNet18:
+
+<img width="600" height="500" alt="confusion_matrix_resnet18" src="https://github.com/user-attachments/assets/939a0b93-0e34-4c73-9460-48b42e6acd06" />
+
+DeepLabV3+ (Backbone with MobileNet)
+
+<img width="600" height="500" alt="confusion_matrix" src="https://github.com/user-attachments/assets/ef22963e-d714-4b8c-87e4-6e66543d0a30" />
+
 
 ---
 
