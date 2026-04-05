@@ -1,7 +1,3 @@
-Here’s a **detailed, professional GitHub README** tailored to your paper and system. You can paste this directly into `README.md`.
-
----
-
 # 🚁 Edge AI-Enabled Autonomous UAV for Real-Time Flood Detection & GPS Mapping
 
 ## 📌 Overview
