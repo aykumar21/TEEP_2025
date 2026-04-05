@@ -110,11 +110,8 @@ Used for:
 
 ---
 
-Here’s a fully updated and polished README based on your instructions, combining your original content with the detailed system setup instructions:
 
----
-
-# ⚙️ Flood UAV Simulation Setup
+## Flood UAV Simulation Setup
 
 ## 1. System Requirements
 
