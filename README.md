@@ -408,6 +408,7 @@ DeepLabV3+ (Backbone with MobileNet)
 
 ## 👨‍💻 Authors
 
+* Naisha Eshwar Shelke 
 * Ayush Kumar
 * Huang Po Chun
 * Ayush Pratap
