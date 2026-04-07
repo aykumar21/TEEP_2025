@@ -642,11 +642,6 @@ Fallback Actions:
 - Evaluated in **Gazebo Flood-World simulation**
 - Values represent **number of pixels**, not images
 
-**Insight:**
-- Strong performance in simulation environments  
-- Suitable for controlled testing scenarios  
-
----
 
 ### 🧠 DeepLabv3+ (Segmentation - Real-World)
 
