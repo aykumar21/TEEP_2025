@@ -268,49 +268,7 @@ pip install paho-mqtt
 cd PX4-Autopilot
 make px4_sitl gazebo
 ```
-
-
-## 🚀 Running the System
-
-### 🔹 Step 1: Launch PX4 + Gazebo
-
-```bash
-make px4_sitl gazebo
-```
 <img width="1897" height="987" alt="Screenshot 2025-08-05 103054_edited" src="https://github.com/user-attachments/assets/05dc9a1e-2bf9-44af-ac04-a371b711d027" />
-
----
-
-### 🔹 Step 2: Run MAVROS
-
-```bash
-ros2 launch mavros px4.launch.py
-```
-
----
-
-### 🔹 Step 3: Run AI Inference Node
-
-```bash
-ros2 run flood_detection deeplab_inference_node
-```
-
----
-
-### 🔹 Step 4: Run GeoTask Dispatcher
-
-```bash
-python3 mqtt_to_px4.py
-```
-
----
-
-### 🔹 Step 5: Arm and Start Mission
-
-```bash
-ros2 service call /mavros/cmd/arming ...
-ros2 service call /mavros/set_mode ...
-```
 
 ---
 
@@ -431,6 +389,7 @@ Published to:
 /mavros/setpoint_position/global
 
 <img width="1536" height="1024" alt="ChatGPT Image May 17, 2025, 01_33_03 PM" src="https://github.com/user-attachments/assets/286e55d7-4a3f-4e22-896f-5d24c643b3d2" />
+<img width="1920" height="1030" alt="21 04 2025_13 08 09_REC" src="https://github.com/user-attachments/assets/bd5df132-b713-447d-9288-60bfde8a5308" />
 
 
 ---
@@ -672,18 +631,34 @@ Fallback Actions:
 | Environment | Controlled | Noisy, dynamic  |
 | Use Case    | Testing    | Real missions   |
 
-Unet:
+### 🧠 U-Net (Segmentation - Simulation)
 
-<img width="600" height="500" alt="confusion_matrix_unet" src="https://github.com/user-attachments/assets/61aeca2b-c668-4c3a-86b5-e7114e8a88dc" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/61aeca2b-c668-4c3a-86b5-e7114e8a88dc" width="600"/>
+</p>
 
+**Description:**
+- Pixel-wise confusion matrix of **U-Net segmentation**
+- Evaluated in **Gazebo Flood-World simulation**
+- Values represent **number of pixels**, not images
 
-ResNet18:
+**Insight:**
+- Strong performance in simulation environments  
+- Suitable for controlled testing scenarios  
 
-<img width="600" height="500" alt="confusion_matrix_resnet18" src="https://github.com/user-attachments/assets/939a0b93-0e34-4c73-9460-48b42e6acd06" />
+---
 
-DeepLabV3+ (Backbone with MobileNet)
+### 🧠 DeepLabv3+ (Segmentation - Real-World)
 
-<img width="600" height="500" alt="confusion_matrix" src="https://github.com/user-attachments/assets/ef22963e-d714-4b8c-87e4-6e66543d0a30" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ef22963e-d714-4b8c-87e4-6e66543d0a30" width="600"/>
+</p>
+
+**Description:**
+- Pixel-wise confusion matrix of **DeepLabv3+ segmentation**
+- Evaluated on **real UAV imagery**
+- Values represent **number of pixels classified** as flood / non-flood  
+
 
 
 ---
@@ -694,6 +669,7 @@ DeepLabV3+ (Backbone with MobileNet)
 * Autonomous waypoint navigation
 * Dynamic mission updates
 * Stable UAV flight with AI control
+* No human intervention required
 
 ---
 
@@ -709,7 +685,6 @@ DeepLabV3+ (Backbone with MobileNet)
 
 ## 👨‍💻 Authors
 
-* Naisha Eshwar Shelke 
 * Ayush Kumar
 * Huang Po Chun
 * Ayush Pratap
