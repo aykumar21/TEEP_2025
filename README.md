@@ -427,11 +427,8 @@ Published to:
 
 /mavros/setpoint_position/global
 
+<img width="1536" height="1024" alt="ChatGPT Image May 17, 2025, 01_33_03 PM" src="https://github.com/user-attachments/assets/286e55d7-4a3f-4e22-896f-5d24c643b3d2" />
 
-#### ✅ Result
-- UAV autonomously navigates toward flood zones  
-- Validates ROS 2–PX4–Gazebo pipeline  
-- Confirms AI-driven navigation  
 
 ---
 
@@ -456,6 +453,11 @@ After simulation, the system was deployed on real hardware.
 
 
 TAKEOFF → WAYPOINTS → RTL
+
+
+<img width="1206" height="595" alt="20 05 2025_18 51 28_REC" src="https://github.com/user-attachments/assets/a4ad1a12-2098-40cf-bcd4-3729cf3df7df" />
+<img width="363" height="376" alt="fly" src="https://github.com/user-attachments/assets/39443e08-bed7-48e2-9267-1d3405b90cb1" />
+
 
 ---
 
