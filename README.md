@@ -328,6 +328,138 @@ ros2 service call /mavros/set_mode ...
 
 ---
 
+## 🚀 Autonomous UAV Waypoint Injection & Mission Execution
+
+To enable fully autonomous navigation in flood-affected areas, this system implements a **real-time waypoint injection pipeline** that integrates:
+
+- Onboard AI perception  
+- Dynamic mission planning  
+- PX4 flight control  
+
+Traditional waypoint planning is manual and slow, limiting responsiveness during disaster scenarios. This system enables **real-time waypoint updates with minimal latency**, allowing the UAV to dynamically adapt to newly detected flood regions.
+
+---
+
+### 🔄 System Workflow
+
+1. **Flood Detection (Onboard AI)**
+   - Images from the UAV camera are processed on the **Jetson Nano**
+   - Deep learning models detect flood regions in real time
+
+2. **GPS Conversion**
+   - Detected flood centers are converted into GPS coordinates  
+   - Published to ROS 2 topic:
+     ```
+     /next_gps_waypoint
+     ```
+   - Message type: `GeoPoseStamped`
+
+3. **Real-Time GeoTask Dispatcher**
+   - Implemented in:
+     ```
+     mqtt_to_px4.py
+     ```
+   - Subscribes to:
+     ```
+     uav/flood_detection (MQTT)
+     ```
+   - Responsibilities:
+     - Convert GPS → PX4 waypoints  
+     - Generate QGroundControl (QGC) mission files  
+     - Update PX4 mission dynamically  
+
+4. **PX4 Mission Update (MAVROS Services)**
+   - Clear mission:
+     ```
+     WaypointClear
+     ```
+   - Upload mission:
+     ```
+     WaypointPush
+     ```
+
+5. **Autonomous Navigation**
+   - UAV navigates toward detected flood regions  
+   - PX4 handles:
+     - Attitude control  
+     - Altitude stabilization  
+     - Velocity control  
+
+6. **Latency Monitoring**
+   - Timestamps logged across pipeline  
+   - Ensures real-time performance  
+
+---
+
+### 🔁 Closed-Loop Autonomy
+
+
+Camera → AI Detection → GPS Conversion → Waypoint Injection → PX4 Control → UAV Motion
+
+
+✔ Enables fully autonomous flood detection and response  
+✔ Dynamic mission adaptation  
+✔ Fault-tolerant operation  
+
+---
+
+## 🧪 Experiments
+
+### A. Simulation (PX4 SITL + Gazebo)
+
+The system was validated in a **PX4 SITL-Gazebo environment**.
+
+#### ✔️ Features Tested
+- Autonomous takeoff and landing  
+- Offboard mode  
+- AI-based perception integration  
+
+#### 🧠 Perception Module
+- ROS 2 node performs **semantic segmentation**  
+- Generates flood masks in real time  
+
+#### 🌊 Flood Severity Estimation
+- Image divided into **4×4 grid**  
+- Region with highest flood coverage selected  
+
+#### 📍 Navigation Output
+Published to:
+
+/mavros/setpoint_position/global
+
+
+#### ✅ Result
+- UAV autonomously navigates toward flood zones  
+- Validates ROS 2–PX4–Gazebo pipeline  
+- Confirms AI-driven navigation  
+
+---
+
+### B. Real-World Deployment
+
+After simulation, the system was deployed on real hardware.
+
+#### 🧩 Hardware
+- Pixhawk Flight Controller  
+- NVIDIA Jetson Nano  
+
+#### ⚙️ Deployment
+- ROS 2 nodes run on Jetson Nano  
+- Same pipeline as simulation  
+
+#### 🔄 Autonomous Operation
+- Camera → AI detection → GPS conversion  
+- Real-time waypoint updates  
+- PX4 mission updated dynamically  
+
+#### 🎯 Mission Flow
+
+
+TAKEOFF → WAYPOINTS → RTL
+
+---
+
+
 ## ⚡ Performance & Latency
 
 ### 🧠 Inference Performance
