@@ -345,7 +345,6 @@ The system was validated in a **PX4 SITL-Gazebo environment**.
 ### B. Real-World Deployment
 
 After simulation, the system was deployed on real hardware.
-<img width="1536" height="1024" alt="ChatGPT Image May 17, 2025, 01_33_03 PM" src="https://github.com/user-attachments/assets/286e55d7-4a3f-4e22-896f-5d24c643b3d2" />
 
 #### 🧩 Hardware
 - Pixhawk Flight Controller  
