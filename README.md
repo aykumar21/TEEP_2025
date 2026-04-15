@@ -382,21 +382,6 @@ TAKEOFF → WAYPOINTS → RTL
 
 ---
 
-## 🔍 Inference Latency Insights
-
-- Preprocessing (~13 ms) and GPS conversion (~4 ms)  
-originally contributed **<2% latency**  
-
-After optimization, further improvements observed due to:
-
-- Reduced Python overhead (async execution)  
-- Zero-copy memory reuse  
-- Parallel execution across threads  
-
-This module, combined with the **Real-Time GeoTask Dispatcher**, forms the **core intelligence layer** of the UAV flood monitoring system.
-
----
-
 ## 📸 Results
 
 * Real-time flood segmentation
